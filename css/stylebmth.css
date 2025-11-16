@@ -1,0 +1,733 @@
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.whiteblock {
+  position: absolute;
+  height: 40px;
+  width: 60%;
+  background-color: white;
+}
+.whiteblock-left {
+  bottom: 0;
+  left: -20%;
+  transform: skew(45deg);
+}
+.whiteblock-right {
+  top: 0;
+  right: -20%;
+  transform: skew(45deg);
+}
+
+.btn-special-animation {
+  position: relative;
+  transition: background-color 0.3s;
+  overflow: hidden;
+  z-index: 0;
+}
+.btn-special-animation::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #e8e9e0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  z-index: -1;
+}
+.btn-special-animation:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.section-heading {
+  margin-bottom: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Michroma", sans-serif;
+  font-size: 6rem;
+  font-weight: 300;
+  color: #121314;
+}
+
+.section-padding {
+  padding: 5em 2em;
+}
+
+@media (max-width: 568px) {
+  .section-heading {
+    font-size: 3.8rem;
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
+}
+
+.burger-btn {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  padding: 1em;
+  background-color: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  z-index: 5;
+}
+.burger-btn:focus {
+  outline: none;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+.burger-btn:hover .burger-btn__bars::before,
+.burger-btn:hover .burger-btn__bars::after {
+  width: 100%;
+}
+.burger-btn__box {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+.burger-btn__bars, .burger-btn__bars::before, .burger-btn__bars::after {
+  position: absolute;
+  right: 0;
+  height: 3px;
+  content: "";
+  background-color: #babab3;
+  transition: width 0.3s;
+}
+.burger-btn__bars {
+  width: 100%;
+}
+.burger-btn__bars::before {
+  width: 60%;
+  top: 15px;
+}
+.burger-btn__bars::after {
+  top: 30px;
+  width: 30%;
+  transition-delay: 0.1s;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(45deg, rgb(18, 19, 20), rgb(42, 43, 44));
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+  z-index: 2;
+}
+.nav--active {
+  transform: translateX(0);
+}
+.nav__item {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  margin: 0.5em 0;
+  padding: 0.5em 2em;
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+.nav__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #fff;
+  transform: scaleY(0);
+  transition: transform 0.3s;
+}
+.nav__item:hover::before {
+  transform: scaleY(1);
+}
+
+@keyframes navItemsAnimation {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+.nav-items-animation {
+  animation: navItemsAnimation 1s both;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  height: 75vh;
+  background-image: linear-gradient(45deg, rgba(18, 19, 20, 0.75), rgba(42, 43, 44, 0.75)), url("../img/bring-me-the-horizon.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  background-attachment: scroll;
+  overflow: hidden;
+}
+.header__title {
+  font-size: 2.5em;
+  text-transform: uppercase;
+  font-family: "Michroma", sans-serif;
+}
+.header__text {
+  margin: 1em 0;
+  font-size: 2em;
+}
+.header__btn {
+  margin-top: 1em;
+  padding: 0.6em 1.2em;
+  background-color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  color: #121314;
+  cursor: pointer;
+}
+.header__btn::before {
+  background-color: #e8e9e0;
+}
+
+.news__box {
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0;
+}
+.news__img {
+  width: 100%;
+  margin-bottom: 1em;
+}
+.news__title {
+  margin-bottom: 0.5em;
+  font-size: 2em;
+}
+.news__text {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.tour {
+  position: relative;
+  padding: 8em 2em;
+  background-image: linear-gradient(45deg, rgba(18, 19, 20, 0.75), rgba(42, 43, 44, 0.75)), url("../img/bring-me-the-horizon.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+.tour__heading {
+  margin-bottom: 1em;
+  font-family: "Michroma", sans-serif;
+  font-size: 2em;
+  text-transform: uppercase;
+}
+.tour__text {
+  margin: 1.6em 1em;
+  font-size: 2rem;
+}
+.tour__btn {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  padding: 0.5em 1em;
+  max-width: 100px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #121314;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+.tour__btn::before {
+  background-color: #e8e9e0;
+}
+.tour hr {
+  margin: 0 auto;
+  width: 50%;
+  color: #fff;
+}
+
+.album__box {
+  position: relative;
+  margin: 2em 0;
+  height: 450px;
+  text-align: center;
+  color: #fff;
+  perspective: 10000px;
+}
+.album__box:hover .album__box-img {
+  transform: rotateY(-180deg);
+  opacity: 0;
+}
+.album__box:hover .album__box-info {
+  transform: rotateY(0);
+  opacity: 1;
+}
+.album__box-img {
+  padding: 2em;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 1s, opacity 1s;
+}
+.album__box-img--first {
+  background-image: url("../img/BMTH_Count_Your_Blessings.png");
+}
+.album__box-img--second {
+  background-image: url("../img/BMTH_Suicide_Season.png");
+}
+.album__box-img--third {
+  background-image: url("../img/Bring-Me-the-Horizon-There-Is-a-Hell-Believe-Me-Ive-Seen-It-There-Is-a-Heaven-Lets-Keep-It-a-Secret-Deluxe-Version.jpg");
+}
+.album__box-img--fourth {
+  background-image: url("../img/BMTH_Sempiternal.png");
+}
+.album__box-img--fifth {
+  background-image: url("../img/That's_the_Spirit.jpeg");
+}
+.album__box-img--sixth {
+  background-image: url("../img/AmoBringMetheHorizon.png");
+}
+.album__box-img--seventh {
+  background-image: url("../img/Post_Human_NeX_GEn.png");
+}
+.album__box-img-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  width: 100%;
+  padding: 1em;
+  font-size: 2.7rem;
+  text-shadow: #080808 4px 0 12px;
+}
+.album__box-img-check {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  padding: 0.8em 1.6em;
+  background-color: #121314;
+}
+.album__box-img-check i {
+  margin-right: 0.3em;
+}
+.album__box-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(45deg, rgb(18, 19, 20), rgb(42, 43, 44));
+  transform: rotateY(180deg);
+  opacity: 0;
+  transition: transform 1s, opacity 1s;
+}
+.album__box-info-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  width: 100%;
+  padding: 1em;
+  font-size: 2.7rem;
+}
+.album__box-info-text {
+  margin: 0 auto;
+  padding: 1em;
+  width: 70%;
+  list-style-type: none;
+}
+.album__box-info-text-item {
+  padding: 1em;
+  border-bottom: 1px solid #e8e9e0;
+}
+.album__box-info-button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  bottom: 2em;
+  padding: 1em 2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #121314;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+.album__box-info-button::before {
+  background-color: #e8e9e0;
+}
+
+.band {
+  position: relative;
+  background-image: linear-gradient(45deg, rgba(18, 19, 20, 0.75), rgba(42, 43, 44, 0.75)), url("../img/bring-me-the-horizon.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.band .section-heading {
+  color: #e8e9e0;
+}
+.band__option {
+  margin: 2em 0;
+  background-color: #e8e9e0;
+  box-shadow: 10px 5px 5px rgba(46, 46, 46, 0.18);
+  overflow: hidden;
+}
+.band__option-img {
+  width: 100%;
+  overflow: hidden;
+}
+.band__option-info {
+  width: 100%;
+  padding: 2em;
+  z-index: 1;
+}
+.band__option-info-title {
+  font-size: 2.6rem;
+}
+.band__option-info-text {
+  margin: 0.8em 0;
+}
+.band__option-info-btn {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1em 2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #fff;
+  border: none;
+  background-color: #121314;
+  cursor: pointer;
+}
+.band__option-info-btn::before {
+  background-color: #2a2b2c;
+}
+.band__img {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  z-index: 0;
+  transition: transform 0.3s;
+}
+.band__img:hover {
+  transform: scale(1.1);
+}
+
+.merch__boxes {
+  display: flex;
+  flex-direction: row;
+}
+.merch__boxes-btn {
+  margin-top: 2em;
+  bottom: 1em;
+  padding: 0.5em 1em;
+  width: 100%;
+  font-size: 2rem;
+  text-decoration: none;
+  text-align: center;
+  background-color: none;
+  border: none;
+  background-color: #121314;
+  color: #e8e9e0;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.merch__boxes-btn::before {
+  background-color: #2a2b2c;
+}
+.merch__box {
+  position: relative;
+  margin: 2em;
+  padding: 2em;
+  width: 50%;
+  height: 50%;
+  box-shadow: 3px 3px 10px rgba(46, 46, 46, 0.18);
+}
+.merch__box-img {
+  position: absolute;
+  top: 10%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+}
+.merch__box-img img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.merch__box-info {
+  padding: 1em;
+}
+.merch__box-text {
+  padding: 0.5em;
+}
+.merch__box-user {
+  padding: 0.5em;
+  font-weight: bold;
+}
+
+.newsletter {
+  position: relative;
+  background-color: #e8e9e0;
+  overflow: hidden;
+}
+.newsletter .whiteblock-left {
+  background-color: #121314;
+}
+.newsletter__form, .newsletter__form-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.newsletter__form-label {
+  margin: 0.5em 0;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #121314;
+}
+.newsletter__form-input {
+  margin-bottom: 2em;
+  padding: 0.6em 1.2em;
+  border: none;
+  background-color: white;
+  font-size: 1.6rem;
+}
+.newsletter__form-textarea {
+  margin-bottom: 2em;
+  padding: 0.6em 1.2em;
+  border: none;
+  background-color: white;
+  font-size: 1.6rem;
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+  max-height: 300px;
+}
+.newsletter__form-btn {
+  align-self: flex-end;
+  max-width: 200px;
+  border: none;
+  width: 100%;
+  padding: 1em 2em;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  color: #e8e9e0;
+  background-color: #121314;
+  cursor: pointer;
+}
+.newsletter__form-btn::before {
+  background-color: #2a2b2c;
+}
+
+.footer {
+  background-color: #121314;
+  color: #e8e9e0;
+}
+.footer__box {
+  padding: 2em;
+}
+.footer__box-title {
+  margin-bottom: 1em;
+}
+.footer__box-title i {
+  padding-right: 0.5em;
+}
+.footer__box-text {
+  margin-bottom: 0.5em;
+}
+.footer__box-social {
+  margin: 2em 0 1em;
+}
+.footer__box-link {
+  padding: 0.3em;
+  font-size: 3rem;
+  color: #e8e9e0;
+  text-decoration: none;
+}
+.footer__box-link:first-child {
+  padding-left: 0;
+}
+.footer__bottom-text {
+  padding: 2em;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .news__box {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .news__box-info {
+    width: 50%;
+    margin: 2em;
+  }
+  .news__box-info--right {
+    text-align: right;
+  }
+  .news__box-img {
+    width: 50%;
+  }
+  .news__box-img--right {
+    order: 1;
+  }
+  .news__img {
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+  .tour__heading {
+    margin-bottom: 1em;
+    font-size: 4em;
+  }
+  .album__boxes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .album__box {
+    margin: 1em;
+    width: 60%;
+  }
+  .band__option {
+    display: flex;
+    margin: 2em 0;
+    width: 100%;
+  }
+  .band__option-img {
+    width: 50%;
+  }
+  .band__option-img--right {
+    order: 1;
+  }
+  .band__option-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50%;
+  }
+  .band__btn {
+    display: inline-block;
+    margin: 4rem auto;
+    bottom: 2em;
+    padding: 1em 2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.6rem;
+    color: #fff;
+    border: none;
+    background-color: #121314;
+    cursor: pointer;
+  }
+  .band__btn::before {
+    background-color: #2a2b2c;
+  }
+  .footer__boxes {
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer__box-desktop {
+    display: block;
+  }
+  .footer__box {
+    width: 30%;
+  }
+  .footer__box-link {
+    font-size: 3rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .footer__box-link:hover {
+    color: white;
+  }
+  .footer__box-title {
+    margin-bottom: 0.5em;
+  }
+  .footer__box-list {
+    list-style-type: none;
+  }
+  .footer__box-list-item {
+    padding: 0.25em 0;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .footer__box-list-item:hover {
+    color: white;
+  }
+}
+@media (max-width: 768px) {
+  .header__text {
+    font-size: 1.4em;
+  }
+  .album__box-img-title {
+    font-size: 2.5rem;
+  }
+  .album__box-info-title {
+    font-size: 2.5rem;
+  }
+  .footer__box-desktop {
+    display: none;
+  }
+  .nav__item::before {
+    margin-left: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .album__box {
+    width: 45%;
+  }
+  .header__title {
+    font-size: 4em;
+  }
+}
+@media (min-width: 1100px) {
+  .album__box {
+    width: 30%;
+  }
+}/*# sourceMappingURL=stylebmth.css.map */

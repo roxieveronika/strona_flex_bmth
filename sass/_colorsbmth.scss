@@ -1,0 +1,20 @@
+// colors
+$main-color: #121314;
+$secondary-color: #2a2b2c;
+$pure-white: #fff;
+$light-white: #e8e9e0;
+$dark-white: #babab3;
+$dark: #121314;
+
+// grandients
+$dark-gradient: linear-gradient(
+	45deg,
+	rgba(18, 19, 20, 0.75),
+	rgba(42, 43, 44, 0.75)
+);
+
+$dark-gradient-solid: linear-gradient(
+	45deg,
+	rgba(18, 19, 20),
+	rgba(42, 43, 44)
+);

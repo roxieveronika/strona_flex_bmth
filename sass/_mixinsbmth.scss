@@ -1,0 +1,29 @@
+@mixin burgerBtn {
+	position: absolute;
+	right: 0;
+	height: 3px;
+	content: '';
+	background-color: $dark-white;
+	transition: width 0.3s;
+}
+
+@mixin heroImg($bgImg) {
+	background-image: $dark-gradient, url($bgImg);
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+@mixin albumStyle {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@mixin newsletterForm {
+	margin-bottom: 2em;
+	padding: 0.6em 1.2em;
+	border: none;
+	background-color: white;
+	font-size: 1.6rem;
+}
